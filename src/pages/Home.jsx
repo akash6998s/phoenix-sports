@@ -1,33 +1,79 @@
 import React from 'react';
+import Slider from 'react-slick';
+import 'slick-carousel/slick/slick.css'; 
+import 'slick-carousel/slick/slick-theme.css';
+import backgroundImage from '../assets/cricket-turf.webp'; // Replace with your image path
 
 const Home = () => {
-  return (
-    <div className="p-6">
+  // Hero carousel settings
+  const heroSettings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    autoplay: true,
+    autoplaySpeed: 3000,
+    fade: true,
+    arrows: false,
+  };
 
+  // Testimonials carousel settings
+  const testimonialSettings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    autoplay: true,
+    autoplaySpeed: 5000,
+    arrows: false,
+  };
+
+  return (
+    <div>
       {/* Hero Section */}
-      <section className="hero-section relative flex items-center justify-center text-center text-white">
-        <div className="hero-overlay"></div>
-        <div className="relative z-10">
-          <h1 className="text-5xl font-bold leading-tight mb-4 drop-shadow-lg">Welcome to Cricket Turf</h1>
-          <p className="text-xl mb-6 drop-shadow-md">Play the game with passion on a world-class cricket pitch.</p>
-          <a href="/services" className="bg-blue-600 py-3 px-8 text-2xl text-white rounded-lg shadow-lg hover:bg-blue-700">Book Your Slot</a>
-        </div>
+      <section
+        className="hero-section h-screen relative flex items-center justify-center text-center text-white"
+        style={{
+          backgroundImage: `url(${backgroundImage})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          height: '100vh',
+          overflow: 'hidden',
+        }}
+      >
+        <div className="absolute inset-0 bg-black opacity-50"></div>
+        <Slider {...heroSettings}>
+          <div className="flex items-center justify-center h-screen">
+            <div className="relative z-10 p-4">
+              <h1 className="text-5xl font-bold leading-tight mb-4 drop-shadow-lg">Welcome to Cricket Turf</h1>
+              <p className="text-xl mb-6 drop-shadow-md">Play the game with passion on a world-class cricket pitch.</p>
+              <a href="/services" className="bg-blue-600 py-3 px-8 text-2xl text-white rounded-lg shadow-lg hover:bg-blue-700">Book Your Slot</a>
+            </div>
+          </div>
+          <div className="flex items-center justify-center h-screen">
+            <div className="relative z-10 p-4">
+              <h1 className="text-5xl font-bold leading-tight mb-4 drop-shadow-lg">Join Us for Exciting Matches</h1>
+              <p className="text-xl mb-6 drop-shadow-md">Experience the thrill of cricket like never before.</p>
+              <a href="/services" className="bg-blue-600 py-3 px-8 text-2xl text-white rounded-lg shadow-lg hover:bg-blue-700">Get Started</a>
+            </div>
+          </div>
+        </Slider>
       </section>
 
       {/* Why Choose Us */}
-      <section className="mt-12 grid md:grid-cols-2 gap-12">
-        <div className="bg-white shadow-lg rounded-lg p-6 transform hover:scale-105 transition duration-300">
-          <h3 className="text-xl font-semibold mb-3">World-Class Facilities</h3>
-          <p>Our state-of-the-art cricket turf is designed to offer the best experience for players of all levels. High-quality pitch, floodlights, and top-notch equipment await you.</p>
-        </div>
-        <div className="bg-white shadow-lg rounded-lg p-6 transform hover:scale-105 transition duration-300">
-          <h3 className="text-xl font-semibold mb-3">Convenient Location</h3>
-          <p>Located in the heart of the city, our facility is easily accessible, with ample parking and surrounding green spaces. Play at your convenience!</p>
+      <section className="mt-12 p-6 bg-white shadow-lg rounded-lg">
+        <div className="grid md:grid-cols-2 gap-12">
+          <div className="p-6 transform hover:scale-105 transition duration-300">
+            <h3 className="text-xl font-semibold mb-3">World-Class Facilities</h3>
+            <p>Our state-of-the-art cricket turf is designed to offer the best experience for players of all levels. High-quality pitch, floodlights, and top-notch equipment await you.</p>
+          </div>
+          <div className="p-6 transform hover:scale-105 transition duration-300">
+            <h3 className="text-xl font-semibold mb-3">Convenient Location</h3>
+            <p>Located in the heart of the city, our facility is easily accessible, with ample parking and surrounding green spaces. Play at your convenience!</p>
+          </div>
         </div>
       </section>
 
       {/* Features Section */}
-      <section className="mt-12 bg-gray-50 py-12">
+      <section className="mt-12 p-6 bg-gray-50">
         <h2 className="text-3xl font-semibold mb-6 text-center">Our Premium Features</h2>
         <div className="grid md:grid-cols-3 gap-8">
           <div className="bg-white shadow-lg rounded-lg p-6 text-center transform hover:scale-105 transition duration-300">
@@ -46,20 +92,29 @@ const Home = () => {
       </section>
 
       {/* Testimonials Section */}
-      <section className="mt-12 bg-white py-12">
+      <section className="mt-12 p-6 bg-white">
         <h2 className="text-3xl font-semibold mb-6 text-center">What Our Players Say</h2>
-        <div className="space-y-6">
-          <blockquote className="italic text-lg text-gray-700 mx-auto max-w-3xl">
-            "Absolutely amazing facility! The pitch is top-notch, and the coaching sessions have helped improve my game significantly." – John D.
-          </blockquote>
-          <blockquote className="italic text-lg text-gray-700 mx-auto max-w-3xl">
-            "Great atmosphere, and the floodlights make evening matches so much more enjoyable. Highly recommend!" – Sarah L.
-          </blockquote>
-        </div>
+        <Slider {...testimonialSettings}>
+          <div className="mx-auto max-w-3xl">
+            <blockquote className="italic text-lg text-gray-700 text-center">
+              "Absolutely amazing facility! The pitch is top-notch, and the coaching sessions have helped improve my game significantly." – John D.
+            </blockquote>
+          </div>
+          <div className="mx-auto max-w-3xl">
+            <blockquote className="italic text-lg text-gray-700 text-center">
+              "Great atmosphere, and the floodlights make evening matches so much more enjoyable. Highly recommend!" – Sarah L.
+            </blockquote>
+          </div>
+          <div className="mx-auto max-w-3xl">
+            <blockquote className="italic text-lg text-gray-700 text-center">
+              "The coaching staff is very professional, and I've seen a huge improvement in my skills." – Mike T.
+            </blockquote>
+          </div>
+        </Slider>
       </section>
 
       {/* Latest Events */}
-      <section className="mt-12 bg-gray-50 py-12">
+      <section className="mt-12 p-6 bg-gray-50">
         <h2 className="text-3xl font-semibold mb-6 text-center">Upcoming Events</h2>
         <div className="grid md:grid-cols-2 gap-12">
           <div className="bg-white shadow-lg rounded-lg p-6">
@@ -80,7 +135,7 @@ const Home = () => {
       </section>
 
       {/* Timings Section */}
-      <section className="mt-12 bg-white py-12">
+      <section className="mt-12 p-6 bg-white">
         <h2 className="text-2xl font-semibold mb-4">Our Opening Hours</h2>
         <p className="text-lg mb-4">We are open every day, ensuring you have ample time to book and play. Here's when you can join us:</p>
         <ul className="list-disc pl-6 space-y-2 text-lg">
@@ -90,12 +145,11 @@ const Home = () => {
       </section>
 
       {/* Call to Action Section */}
-      <section className="mt-12 bg-blue-600 text-white py-12 text-center">
+      <section className="mt-12 p-6 bg-blue-600 text-white text-center">
         <h2 className="text-3xl font-semibold mb-6">Ready to Play?</h2>
         <p className="text-lg mb-6">Get your game on at our top-tier cricket facility. Book a slot today and experience the best cricket turf in town.</p>
         <a href="/services" className="bg-white text-blue-600 py-3 px-8 text-2xl rounded-lg shadow-lg hover:bg-gray-100">Book Now</a>
       </section>
-
     </div>
   );
 };

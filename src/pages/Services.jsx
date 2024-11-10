@@ -1,4 +1,3 @@
-// src/pages/Services.js
 import React from 'react';
 
 const Services = () => {
@@ -11,6 +10,9 @@ const Services = () => {
         <li><strong>Equipment Rental:</strong> Rent cricket gear and equipment at affordable prices.</li>
         <li><strong>Tournaments:</strong> Participate in exciting cricket tournaments hosted on our turf.</li>
       </ul>
+
+      <h2 className="text-2xl font-semibold mb-4 mt-8">How to Book</h2>
+      <p className="text-lg">To book a slot, simply <a href="/contact" className="underline">contact us</a> with your preferred date and time, and we will reserve it for you!</p>
     </div>
   );
 };

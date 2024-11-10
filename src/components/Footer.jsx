@@ -1,13 +1,14 @@
-// src/components/Footer.js
 import React from 'react';
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-800 text-white py-4 text-center">
-      <p>&copy; 2024 MyWebsite. All Rights Reserved.</p>
+    <footer className="bg-blue-900 text-white py-6">
+      <p>&copy; 2024 Cricket Turf. All Rights Reserved.</p>
+      <p>
+        Contact us: <a href="mailto:info@cricketturf.com" className="underline">info@cricketturf.com</a>
+      </p>
     </footer>
   );
 };
 
 export default Footer;
-

@@ -1,4 +1,3 @@
-// src/pages/Contact.js
 import React from 'react';
 
 const Contact = () => {
@@ -12,20 +11,20 @@ const Contact = () => {
       <form className="space-y-4">
         <div className="mb-4">
           <label htmlFor="name" className="block text-lg">Name:</label>
-          <input type="text" id="name" className="w-full p-2 mt-2 border border-gray-300 rounded-lg" />
+          <input type="text" id="name" className="w-full p-3 mt-2 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500" />
         </div>
         
         <div className="mb-4">
           <label htmlFor="email" className="block text-lg">Email:</label>
-          <input type="email" id="email" className="w-full p-2 mt-2 border border-gray-300 rounded-lg" />
+          <input type="email" id="email" className="w-full p-3 mt-2 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500" />
         </div>
         
         <div className="mb-4">
           <label htmlFor="message" className="block text-lg">Message:</label>
-          <textarea id="message" className="w-full p-2 mt-2 border border-gray-300 rounded-lg"></textarea>
+          <textarea id="message" className="w-full p-3 mt-2 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500"></textarea>
         </div>
 
-        <button type="submit" className="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600">
+        <button type="submit" className="w-full bg-blue-600 text-white py-3 rounded-lg shadow-lg hover:bg-blue-700">
           Send Message
         </button>
       </form>

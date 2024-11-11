@@ -1,33 +1,34 @@
-import React from 'react';
-import { Routes, Route } from 'react-router-dom';
-import Header from './components/Header';
-import Footer from './components/Footer';
-import About from './pages/About';
-import Services from './pages/Services';
-import Contact from './pages/Contact';
-import Home from './pages/Home';
-import SignIn from './pages/SignIn';
-import SignUp from './pages/SignUp';
+import Footer from "./components/Footer";
+import Header from "./components/Header";
+import { Routes, Route, useLocation } from "react-router-dom";
+import Contact from "./components/pages/Contact";
+import Services from "./components/pages/Services";
+import About from "./components/pages/About";
+import Home from "./components/pages/Home";
+import Login from "./components/Login";
+import Signup from "./components/Signup";
+import Profile from "./components/pages/Profile";
+function App() {
+  const location = useLocation();
 
-const App = () => {
+  // Determines if the current path is an authentication page (login or signup)
+  const isAuthPage = location.pathname === "/login" || location.pathname === "/signup";
+
   return (
-    <div className="flex flex-col min-h-screen bg-gray-100">
-      <Header />
-      
-      {/* <main className="flex-grow p-0.2 md:p-4 lg:p-6"> */}
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/services" element={<Services />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/signin" element={<SignIn />} />
-          <Route path="/signup" element={<SignUp />} />
-        </Routes>
-      {/* </main> */}
-
-      <Footer />
-    </div>
+    <>
+      {!isAuthPage && <Header />}
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/services" element={<Services />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/profile" element={<Profile />} />
+      </Routes>
+      {!isAuthPage && <Footer />}
+    </>
   );
-};
+}
 
 export default App;
